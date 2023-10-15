@@ -1,8 +1,8 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Oasis Infobyte Internship Task4
 
-Currently, two official plugins are available:
+Created a login authentication system. I chose JavaScript and Firebase to implement registration, login, and secure access to a page. This project expanded my skills into React.js and gave me a taste of real-world application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Skills
+ReactJs, TailwindCSS and Firebase
+
