@@ -1,23 +1,26 @@
 import React, { useState } from 'react'
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
+import { toast } from "react-toastify";
+
 
 const Login = () => {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
 
-    // try {
-    //   await signInWithEmailAndPassword(auth, email, password);
-    //   toast.success("Authenticated successfully");
-    //   navigate("/");
-    // } catch (error) {
-    //   toast.error("User doesn't exist. Please register first!");
-    // }
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      toast.success("Authenticated successfully");
+      navigate("/");
+    } catch (error) {
+      toast.error("Email or Password is incorrect");
+    }
 
     setEmail("");
     setPassword("");
@@ -35,7 +38,7 @@ const Login = () => {
           <div>
             <label
               htmlFor="email"
-              className="block mb-1 text-base font-medium text-gray-900"
+              className="block mb-1 text-lg font-medium text-gray-900"
             >
               Your email
             </label>
@@ -46,7 +49,7 @@ const Login = () => {
                 setEmail(e.target.value);
               }}
               name="email"
-              className="mb-2 bg-gray-50 border border-gray-300 text-gray-900 sm:text-base rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2"
+              className="mb-5 bg-gray-50 border border-gray-300 text-gray-900 sm:text-base rounded focus:ring-blue-600 focus:border-blue-600 block w-full p-2"
               placeholder="Enter email here..."
               required
             />
@@ -54,7 +57,7 @@ const Login = () => {
           <div>
             <label
               htmlFor="password"
-              className="block mb-1 text-base font-medium text-gray-900"
+              className="block mb-1 text-lg font-medium text-gray-900"
             >
               Password
             </label>
@@ -66,16 +69,16 @@ const Login = () => {
               }}
               name="password"
               placeholder="Enter password here..."
-              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-base rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2 "
+              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-base rounded focus:ring-blue-600 focus:border-blue-600 block w-full p-2 "
               required
             />
           </div>
 
-          <button className="w-full my-4 text-white bg-indigo-600 hover:bg-indigo-500 font-medium rounded-lg text-base px-5 py-2 text-center">
+          <button className="w-full mt-6 mb-3 text-white bg-indigo-600 hover:bg-indigo-500 font-medium rounded-md text-base px-5 py-2 text-center">
             Login
           </button>
           <hr />
-          <p className="text-base text-center font-normal text-gray-500">
+          <p className="text-base mt-1 text-center font-normal text-gray-500">
             Don't have an account?{" "}
             <Link
               to="/signup"
