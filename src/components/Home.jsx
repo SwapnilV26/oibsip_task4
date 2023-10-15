@@ -6,7 +6,7 @@ import { auth } from "../firebase";
 const Home = ({ username, email }) => {
   return (
     <section className="flex items-center justify-center h-[100vh]">
-      <div className="bg-slate-300 bg-opacity-50 p-10 rounded-lg mx-5">
+      <div className="bg-slate-400 bg-opacity-50 p-10 rounded-lg mx-5">
         <Link to="/login">
           <button className="w-full text-white bg-indigo-600 hover:bg-indigo-500 font-medium rounded-md text-base px-5 py-2 text-center">
             Login
